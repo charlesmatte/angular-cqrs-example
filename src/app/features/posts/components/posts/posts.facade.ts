@@ -16,7 +16,7 @@ export class PostsQueryFacade extends QueryFacade<Post> {
     return this._repository.getAll();
   }
 
-  queryCallback(posts: Post[]) {
+  callback(posts: Post[]) {
     this.store.setPosts(posts);
   }
 }

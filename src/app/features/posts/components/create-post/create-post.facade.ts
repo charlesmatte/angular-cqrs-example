@@ -20,7 +20,7 @@ export class PostCommandFacade extends CommandFacade<Post> {
     return this._repository.create(post);
   }
 
-  override commandCallback(result: Post): void {
+  override callback(result: Post): void {
     this.store.addPost(result);
   }
 }
