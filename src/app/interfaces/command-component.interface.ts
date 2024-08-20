@@ -1,4 +1,4 @@
-import { ICommandFacade } from './facade.interface';
+import { ICommandFacade } from "./facade.interface";
 
 export interface ICommandComponent<T> {
   facade: ICommandFacade<T>;

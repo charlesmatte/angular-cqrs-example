@@ -1,11 +1,11 @@
-import { inject, Injectable } from '@angular/core';
-import { QueryFacade } from '../../../../core/services/query-facade.service';
-import { Post } from '../../../../types/post';
-import { PostRepository } from '../../posts-repository.service';
-import { PostsStore } from '../../posts.store';
+import { inject, Injectable } from "@angular/core";
+import { QueryFacade } from "../../../../core/services/query-facade.service";
+import { Post } from "../../../../types/post";
+import { PostRepository } from "../../posts-repository.service";
+import { PostsStore } from "../../posts.store";
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class PostsQueryFacade extends QueryFacade<Post> {
   override _repository = inject(PostRepository);

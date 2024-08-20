@@ -1,14 +1,12 @@
-import { AsyncPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
-import { CommandComponent } from '../../../../core/components/command.component';
-import { Post } from '../../../../types/post';
-import { CardComponent } from '../../../ui/card/card.component';
-import { PostCommandFacade } from './create-post.facade';
+import { Component, inject } from "@angular/core";
+import { CommandComponent } from "../../../../core/components/command.component";
+import { Post } from "../../../../types/post";
+import { CardComponent } from "../../../ui/card/card.component";
+import { PostCommandFacade } from "./create-post.facade";
 
 @Component({
   standalone: true,
-  selector: 'app-create-post',
+  selector: "app-create-post",
   template: ` <div class="btn-container">
     <button (click)="handleClick()" class="btn">Create Post</button>
   </div>`,
@@ -30,23 +28,18 @@ import { PostCommandFacade } from './create-post.facade';
     justify-content: end;
     align-items: center;
 }`,
-  imports: [AsyncPipe, CardComponent],
+  imports: [CardComponent],
 })
 export class CreatePostComponent extends CommandComponent<Post> {
   override facade = inject(PostCommandFacade);
-  private toastr = inject(ToastrService);
 
   handleClick() {
     this.facade
       .create({
-        title: 'New Post',
-        body: 'This is a new post',
-        userId: '1',
+        title: "New Post",
+        body: "This is a new post",
+        userId: "1",
       })
-      .subscribe((response) =>
-        response.success
-          ? this.toastr.success('Post created successfully')
-          : this.toastr.error('Post creation failed')
-      );
+      .subscribe((response) => (response.success ? this.toastr.success("Post created successfully") : this.toastr.error("Post creation failed")));
   }
 }

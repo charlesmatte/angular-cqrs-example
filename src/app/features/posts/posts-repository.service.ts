@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
-import { JSONPlaceholderAPIClient } from '../../api/jsonplaceholder-api-client.service';
-import { BaseRepository } from '../../repositories/base-repository.service';
-import { Post } from '../../types/post';
+import { JSONPlaceholderAPIClient } from "../../api/jsonplaceholder-api-client.service";
+import { BaseRepository } from "../../repositories/base-repository.service";
+import { Post } from "../../types/post";
 
 /**This class contains employees fetching logic*/
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class PostRepository extends BaseRepository<Post> {
   override apiClient: JSONPlaceholderAPIClient;
@@ -16,10 +16,10 @@ export class PostRepository extends BaseRepository<Post> {
   }
 
   override getAll() {
-    return this.apiClient.get<Post[]>('posts?_start=0&_limit=3');
+    return this.apiClient.get<Post[]>("posts?_start=0&_limit=3");
   }
 
   override create(item: Post) {
-    return this.apiClient.post<Post>('posts', item);
+    return this.apiClient.post<Post>("posts", item);
   }
 }
