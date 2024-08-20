@@ -1,4 +1,3 @@
-import { AsyncPipe } from "@angular/common";
 import { Component, inject } from "@angular/core";
 import { QueryComponent } from "../../../../core/components/query.component";
 import { Post } from "../../../../types/post";
@@ -11,7 +10,7 @@ import { PostsQueryFacade } from "./posts.facade";
   template: `@for (post of posts(); track $index) {
     <app-card [data]="post" />
     }`,
-  imports: [AsyncPipe, CardComponent],
+  imports: [CardComponent],
 })
 export class PostsComponent extends QueryComponent<Post> {
   override facade = inject(PostsQueryFacade);
