@@ -12,11 +12,11 @@ export class PostsQueryFacade extends QueryFacade<Post> {
   private store = inject(PostsStore);
   posts = this.store.posts;
 
-  query() {
+  override query() {
     return this._repository.getAll();
   }
 
-  callback(posts: Post[]) {
+  override callback(posts: Post[]) {
     this.store.setPosts(posts);
   }
 }
